@@ -1,6 +1,7 @@
 <template xmlns="http://www.w3.org/1999/html">
   <div>
-    <n-card :title="entreprise.name">
+      <template v-if="entreprise">
+        <n-card  :title="entreprise.name">
       <n-image :src="entreprise.logo" alt="Entreprise Logo" /><br>
       <template #header-extra>
         ID: {{ entreprise.id }}
@@ -17,7 +18,11 @@
           </n-button>
         </router-link>
       </template>
-    </n-card>
+        </n-card>
+      </template>
+      <template v-else>
+        <n-image src="https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif" alt="Loading" />
+      </template>
   </div>
 </template>
 
