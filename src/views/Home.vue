@@ -67,14 +67,14 @@ export default {
   methods: {
     handlePageChange(newPage) {
       this.currentPage = newPage;
-      axios.get(`/api/entreprises?page=${newPage}&name=${this.searchTerm}`).then(response => {
+      axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/entreprises?page=${newPage}&name=${this.searchTerm}`).then(response => {
         this.entreprises = response.data.entreprises;
       }).catch(error => {
         console.error('Error when retrieving entreprises:', error);
       });
     },
     handleSearch(searchTerm) {
-      axios.get(`/api/entreprises?name=${searchTerm}`).then(response => {
+      axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/entreprises?name=${searchTerm}`).then(response => {
         this.entreprises = response.data.entreprises;
         this.totalPages = response.data.totalPages;
         this.searchTerm = searchTerm;
