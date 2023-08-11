@@ -2,7 +2,7 @@
   <div>
       <template v-if="entreprise">
         <n-card  :title="entreprise.name">
-      <n-image :src="entreprise.logo" alt="Entreprise Logo" /><br>
+      <n-image :src="entreprise.logo" alt="Entreprise Logo" width="200"/><br>
       <template #header-extra>
         ID: {{ entreprise.id }}
       </template>
