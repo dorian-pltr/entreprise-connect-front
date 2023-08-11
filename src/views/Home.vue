@@ -7,13 +7,9 @@
       <h3>{{ entreprise.name }}</h3>
       <p>{{ entreprise.description }}</p>
         <router-link
-            v-slot="{ navigate }"
             :to="'/entreprise/' + entreprise.id"
         >
-          <n-button
-              role="link"
-              @click="navigate"
-          >
+          <n-button>
         Details
           </n-button>
         </router-link>
