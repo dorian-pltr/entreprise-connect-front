@@ -42,9 +42,7 @@ export default {
     };
   },
   created() {
-    const entrepriseId = this.$route.params.id;
-    axios.defaults.baseURL = import.meta.env.VITE_BACKEND_URL;
-    axios.get(`/api/entreprise/${entrepriseId}`).then(response => {
+    axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/entreprise/${entrepriseId}`).then(response => {
       this.entreprise = response.data;
     }).catch(error => {
       console.error('Error when retrieving entreprise:', error);

@@ -46,8 +46,7 @@ export default {
     };
   },
   created() {
-    axios.defaults.baseURL = import.meta.env.VITE_BACKEND_URL;
-    axios.get('/api/entreprises').then(response => {
+    axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/entreprises`).then(response => {
       this.entreprises = response.data.entreprises;
       this.totalPages = response.data.totalPages;
     }).catch(error => {
