@@ -1,4 +1,4 @@
-# Entreprise Connect - Frontend
+# Entreprise Connect Frontend
 
 ![Vue Version](https://img.shields.io/badge/Vue-3.0.0-brightgreen.svg)
 
