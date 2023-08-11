@@ -42,6 +42,7 @@ export default {
     };
   },
   created() {
+    const entrepriseId = this.$route.params.id;
     axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/entreprise/${entrepriseId}`).then(response => {
       this.entreprise = response.data;
     }).catch(error => {
