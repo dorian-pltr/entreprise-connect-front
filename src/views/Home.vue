@@ -2,18 +2,8 @@
   <div>
     <n-input v-model="searchTerm" placeholder="Search entreprise by name" @input="handleSearch" />
     <div class="card-list">
-      <n-card v-for="entreprise in filteredEntreprises" :key="entreprise.id" class="card" hoverable>
-        <n-image :src="entreprise.logo" alt="Entreprise Logo" preview-disabled width="200"/>
-      <h3>{{ entreprise.name }}</h3>
-      <p>{{ entreprise.description }}</p>
-        <router-link
-            :to="'/entreprise/' + entreprise.id"
-        >
-          <n-button>
-        Details
-          </n-button>
-        </router-link>
-    </n-card>
+      <Card v-for="entreprise in filteredEntreprises" :id="entreprise.id" :key="entreprise.id" :logo="entreprise.logo"
+            :name="entreprise.name"/>
     </div>
     <div class="pagination-container">
     <n-pagination
@@ -28,6 +18,7 @@
 <script>
 import axios from "axios";
 import {NButton, NCard, NImage, NInput, NPagination} from 'naive-ui';
+import Card from "../components/Card.vue";
 
 export default {
   components: {
@@ -35,7 +26,8 @@ export default {
     NInput,
     NPagination,
     NButton,
-    NImage
+    NImage,
+    Card
   },
   data() {
     return {
@@ -93,29 +85,9 @@ export default {
   justify-content: center;
 }
 
-.card {
-  border: 1px solid #ccc;
-  padding: 10px;
-  margin: 10px;
-  width: calc(33.33% - 20px);
-  text-align: center;
-}
-
 .pagination-container {
   display: flex;
   justify-content: center;
   margin: 20px 0 20px 0;
-}
-
-@media (max-width: 800px) {
-  .card {
-    width: calc(50% - 20px);
-  }
-}
-
-@media (max-width: 600px) {
-  .card {
-    width: 100%;
-  }
 }
 </style>
